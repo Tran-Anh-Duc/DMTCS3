@@ -48,8 +48,12 @@ class AuthController extends Controller
            "email" => "required",
            "password" => "required|min:6"
         ]);
-        $data = $request->only("name", "email", "password");
+        $data = $request->only("name", "email", "password","avatar");
+        $avatar = $request->file('file');
         $data["password"] = Hash::make($request->password);
+        $data["avatar"] = time().'.'.$avatar->getClientOriginalExtension();
+        $path = public_path('/uploads');
+        $avatar->move($path, $data['avatar']);
         User::query()->create($data);
         return redirect()->route("login.form");
     }
