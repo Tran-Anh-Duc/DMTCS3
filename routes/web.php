@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,17 @@ Route::prefix('categories')->group(function (){
     Route::get('/delete/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
     Route::get('/detail/{id}',[CategoryController::class,'showDetail'])->name('categories.showDetail');
 });
+
+Route::prefix("/auth")->group(function() {
+    Route::get("/login", [\App\Http\Controllers\AuthController::class, "showFormLogin"])->name("login.form");
+    Route::post("/login", [\App\Http\Controllers\AuthController::class, "login"])->name("auth.login");
+    Route::get("/logout", [\App\Http\Controllers\AuthController::class, "logout"])->name("auth.logout");
+    Route::get("/register", [\App\Http\Controllers\AuthController::class, "showFormRegister"])->name("register.form");
+    Route::post("/register", [\App\Http\Controllers\AuthController::class, "register"])->name("auth.register");
+});
+
+Route::get('/auth/redirect/{provider}', [SocialController::class,'redirect']);
+
+Route::get('/callback/{provider}', [SocialController::class, 'callback']);
+
+
