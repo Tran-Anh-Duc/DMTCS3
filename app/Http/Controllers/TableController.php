@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
-class TableController extends Controller implements BaseInterface
+class TableController extends Controller
 {
     protected $tableRepository;
 

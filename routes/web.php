@@ -47,6 +47,10 @@ Route::prefix("/auth")->group(function() {
     Route::post("/register", [\App\Http\Controllers\AuthController::class, "register"])->name("auth.register");
 });
 
+Route::prefix("/users")->group(function(){
+    Route::get("/list", [\App\Http\Controllers\UserController::class, "index"])->name("users.list");
+});
+
 Route::get('/auth/redirect/{provider}', [SocialController::class,'redirect']);
 
 Route::get('/callback/{provider}', [SocialController::class, 'callback']);
