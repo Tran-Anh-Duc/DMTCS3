@@ -6,17 +6,20 @@ use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
+use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller implements BaseInterface
 {
     protected $productRepository;
     protected $categoryRepository;
+    protected $tableRepository;
 
-    public function __construct(ProductRepository $productRepository ,CategoryRepository $categoryRepository)
+    public function __construct(ProductRepository $productRepository ,CategoryRepository $categoryRepository, TableRepository $tableRepository)
     {
         $this->productRepository = $productRepository;
         $this->categoryRepository =$categoryRepository;
+        $this->tableRepository = $tableRepository;
     }
 
     public function index()
@@ -72,5 +75,13 @@ class ProductController extends Controller implements BaseInterface
         $this->productRepository->delete($id);
         toastr()->success("Delete success");
         return redirect()->route("products.list");
+    }
+
+    public function showTableDetail($id)
+    {
+        $detail = $this->tableRepository->getById($id);
+        $products = $this->productRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
+        return view("backend.product.order", compact("products", "categories", "detail"));
     }
 }

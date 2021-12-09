@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\role;
+use App\Repositories\RoleRepository;
+use Illuminate\Http\Request;
+
+class RoleController extends Controller
+{
+    protected $roleRepository;
+    public function __construct(RoleRepository $roleRepository)
+    {
+        $this->roleRepository = $roleRepository;
+    }
+}
