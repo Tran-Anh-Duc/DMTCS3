@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-lg-9">
             <table border="1px">
                 <thead>
                 <tr>
@@ -51,8 +51,8 @@
                 </tbody>
             </table>
         </div>
-{{--collum 2 --}}
-        <div class="col">
+{{--<collum 2 >--}}
+        <div class="col-lg-3">
             <table border="1px">
                 <thead>
                 <tr>
