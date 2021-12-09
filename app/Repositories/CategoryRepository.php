@@ -7,7 +7,7 @@ use App\Models\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class CategoryRepository extends BaseRepositories
+class CategoryRepository extends BaseRepository
 {
     public function __construct(Category $category)
     {
@@ -24,7 +24,7 @@ class CategoryRepository extends BaseRepositories
     public function edit(Request $request,$id)
     {
         $category = Category::findOrFail($id);
-        $data = $request->only('name');
+        $data = $request->only('name','description');
         return Category::where('id','=',$id)->update($data);
     }
 }

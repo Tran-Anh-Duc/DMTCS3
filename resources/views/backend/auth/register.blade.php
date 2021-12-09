@@ -29,12 +29,12 @@
 </head>
 <body style="background-color: #666666;">
 
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <form class="login100-form validate-form" method="post">
+<div class="limiter" >
+    <div class="container-login100" >
+        <div class="wrap-login100" >
+            <form class="login100-form validate-form" method="post" enctype="multipart/form-data">
                 @csrf
-                <span class="login100-form-title p-b-43">
+                <span class="login100-form-title p-b-43" style="margin-top:-140px ">
 						Sign Up
 					</span>
 
@@ -46,6 +46,7 @@
                     <p class="text text-danger" >{{$message}}</p>
                     @enderror
                 </div>
+                <br>
 
 
                 <div class="wrap-input100 " >
@@ -56,6 +57,7 @@
                     <p class="text text-danger" >{{$message}}</p>
                     @enderror
                 </div>
+                <br>
 
 
                 <div class="wrap-input100" >
@@ -66,13 +68,31 @@
                     <p class="text text-danger" >{{$message}}</p>
                     @enderror
                 </div>
+                <br>
+
+
+
+                <div class="custom-file">
+                    <input type="file" name="file" class="custom-file-input" id="chooseFile">
+                    <label class="custom-file-label" for="chooseFile" >Chọn ảnh</label>
+                </div>
+                <br><br>
+                <div class="row">
+                <div class="container-login100-form-btn" >
+                <button type="submit" name="submit" class="login100-form-btn">
+                    Upload Files Image
+                </button>
+                </div>
+                <br><br>
+
+
 
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
                         Sign up now
                     </button>
                 </div>
-
+                </div>
 
                 <div class="text-center p-t-46 p-b-20">
                     <p class="text-inverse text-left"><a href="{{route("login.form")}}"><b style="font-weight: bolder">Back to website</b></a></p>

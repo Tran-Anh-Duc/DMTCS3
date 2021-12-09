@@ -34,7 +34,7 @@
         <div class="wrap-login100">
             <form class="login100-form validate-form" method="post">
                 @csrf
-					<span class="login100-form-title p-b-43">
+					<span class="login100-form-title p-b-43" style="margin-top:-115px ">
 						Login to continue
 					</span>
 
@@ -46,7 +46,7 @@
                     @error("email")
                     <p class="text text-danger" >{{$message}}</p>
                     @enderror
-                </div>
+                </div><br>
 
 
 
@@ -57,7 +57,7 @@
                     @error("password")
                     <p class="text text-danger" >{{$message}}</p>
                     @enderror
-                </div>
+                </div><br>
 
                 <div class="flex-sb-m w-full p-t-3 p-b-32">
                     <div class="contact100-form-checkbox">
@@ -93,11 +93,11 @@
                 </div>
 
                 <div class="login100-form-social flex-c-m">
-                    <a href="{{ url('/auth/redirect/google') }}" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                    <a  href="{{ url('/auth/redirect/google') }}" class="login100-form-social-item flex-c-m bg1 m-r-5">
                         <i style="color: white" class="fa fa-google-plus" aria-hidden="true"></i>
                     </a>
 
-                    <a href="{{ url('/auth/redirect/github') }}" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                    <a  href="{{ url('/auth/redirect/github') }}" class="login100-form-social-item flex-c-m bg2 m-r-5">
                         <i class="fa fa-github" style="color: white" aria-hidden="true"></i>
                     </a>
                 </div>
