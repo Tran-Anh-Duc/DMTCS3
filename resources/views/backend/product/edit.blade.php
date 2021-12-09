@@ -1,3 +1,5 @@
+@extends("backend.layout.master")
+
 <form method="post" enctype="multipart/form-data">
     @csrf
     <table>

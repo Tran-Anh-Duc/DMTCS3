@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 
@@ -41,9 +42,7 @@ class SocialController extends Controller
 
 
         auth()->login($user);
-
-
-
+        toastr()->success("Hello ". Auth::user()->name ?? "");
         return redirect()->route("tables.index");
 
 

@@ -1,4 +1,5 @@
-<!doctype html>
+@extends("backend.layout.master")
+@section()<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +15,18 @@
     <div>
         <label for="name">Name
             <input type="text" name="name" value="{{old('name')}}">
+            @error('name')
+            <p class="text text-danger">{{$message}}</p>
+            @enderror
         </label>
     </div>
 
     <div>
         <label for="name">Description
             <input type="text" name="description" value="{{old('description')}}">
+            @error('description')
+            <p class="text text-danger">{{$message}}</p>
+            @enderror
         </label>
     </div>
     <button type="submit">Add</button>

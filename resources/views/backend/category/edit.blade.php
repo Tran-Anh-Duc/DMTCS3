@@ -1,3 +1,5 @@
+@extends("backend.layout.master")
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,12 +16,18 @@
     <div>
         <label for="name">Name
             <input type="text" name="name" value="{{$category->name}}">
+            @error('name')
+            <p class="text text-danger">{{$message}}</p>
+            @enderror
         </label>
     </div>
 
     <div>
         <label for="description">Description
             <input type="text" name="description" value="{{$category->description}}">
+            @error('description')
+            <p class="text text-danger">{{$message}}</p>
+            @enderror
         </label>
     </div>
 

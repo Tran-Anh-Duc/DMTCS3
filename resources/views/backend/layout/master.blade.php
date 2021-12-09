@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="{{asset("dist/css/lib/getmdl-select.min.css")}}">
     <link rel="stylesheet" href="{{asset("dist/css/lib/nv.d3.min.css")}}">
     <link rel="stylesheet" href="{{asset("dist/css/application.min.css")}}">
+    @toastr_css
+    @jquery
     <!-- endinject -->
 </head>
 <body>
@@ -99,5 +101,7 @@
 
 <!-- endinject -->
 
+@toastr_js
+@toastr_render
 </body>
 </html>
