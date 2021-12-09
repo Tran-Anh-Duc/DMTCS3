@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller implements BaseInterface
+class ProductController extends Controller
 {
     protected $productRepository;
     protected $categoryRepository;
