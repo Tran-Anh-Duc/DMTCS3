@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+
         <div class="container">
             <div class="row">
                 @foreach($tables as $key => $table)
@@ -33,6 +34,31 @@
                 @endforeach
             </div>
         </div>
+
+<div>
+    <a href="{{route('tables.showFormCreate')}}">Add New Category</a>
+</div>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($tables as $key=>$table)
+        <tr>
+            <td>{{$key+1}}</td>
+            <td>{{$table->name}}</td>
+            <td><a type="button" href="{{route("tables.showFormEdit",$table->id)}}">Edit</a></td>
+            <td><a type="button" onclick="return confirm(' Are you sure ? ')" href="{{route('tables.destroy',$table->id)}}">Delete</a></td>
+        </tr>
+
+    @endforeach
+    </tbody>
+</table>
+
 
 </body>
 </html>

@@ -26,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset("login/css/util.css")}}">
     <link rel="stylesheet" type="text/css" href="{{asset("login/css/main.css")}}">
     <!--===============================================================================================-->
+    @toastr_css
+    @jquery
 </head>
 <body style="background-color: #666666;">
 
@@ -128,6 +130,7 @@
 <script src="{{asset("login/vendor/countdowntime/countdowntime.js")}}"></script>
 <!--===============================================================================================-->
 <script src="{{asset("login/js/main.js")}}"></script>
-
+@toastr_js
+@toastr_render
 </body>
 </html>
