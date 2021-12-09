@@ -11,6 +11,9 @@
     <title>Table</title>
 </head>
 <body>
+<div>
+    <a href="{{route('tables.showFormCreate')}}">Add New Category</a>
+</div>
 <table border="1px">
     <thead>
     <tr>
