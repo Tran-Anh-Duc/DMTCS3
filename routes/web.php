@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,12 +53,17 @@ Route::prefix('categories')->group(function () {
     Route::get('/detail/{id}', [CategoryController::class, 'showDetail'])->name('categories.showDetail');
 });
 
+
 Route::prefix("/auth")->group(function () {
     Route::get("/login", [AuthController::class, "showFormLogin"])->name("login.form");
     Route::post("/login", [AuthController::class, "login"])->name("auth.login");
     Route::get("/logout", [AuthController::class, "logout"])->name("auth.logout");
     Route::get("/register", [AuthController::class, "showFormRegister"])->name("register.form");
     Route::post("/register", [AuthController::class, "register"])->name("auth.register");
+});
+
+Route::prefix("/users")->group(function(){
+    Route::get("/list", [UserController::class, "index"])->name("users.list");
 });
 
 Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);

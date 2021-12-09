@@ -44,7 +44,7 @@ class SocialController extends Controller
 
 
 
-        return redirect()->to('/home');
+        return redirect()->route("tables.index");
 
 
 

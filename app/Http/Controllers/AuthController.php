@@ -23,7 +23,7 @@ class AuthController extends Controller
         ]);
         $data = $request->only("email", "password");
         if (Auth::attempt($data)) {
-            return view("backend.auth.zo");
+            return redirect()->route("users.list");
         }else{
             dd("login fail" );
         }

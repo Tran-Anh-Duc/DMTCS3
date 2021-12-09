@@ -1,3 +1,6 @@
+@extends("backend.layout.master")
+@section("content")
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,9 +11,6 @@
     <title>Table</title>
 </head>
 <body>
-<div>
-    <a href="{{route('tables.showFormCreate')}}">Add New Table</a>
-</div>
 <table border="1px">
     <thead>
     <tr>
@@ -34,3 +34,4 @@
 
 </body>
 </html>
+@endsection
