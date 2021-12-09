@@ -15,9 +15,9 @@ class TableSeeder extends Seeder
     public function run()
     {
         DB::table('tables')->insert([
-           ["name"=>"wine1"],
-           ["name"=>"wine2"],
-           ["name"=>"wine3"],
+           ["name"=>"Bàn số 1"],
+           ["name"=>"Bàn số 2"],
+           ["name"=>"Bàn số 3"],
         ]);
     }
 }
