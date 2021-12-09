@@ -23,10 +23,12 @@
                         </div>
                     </div>
                     <hr>
+                        @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
                     <a class="mdl-navigation__link" href="{{route("users.list")}}">
                         <i class="material-icons" role="presentation">person</i>
                         Account
                     </a>
+                    @endif
                     <div class="mdl-layout-spacer"></div>
                     <hr>
                     <a class="mdl-navigation__link" href="https://github.com/CreativeIT/getmdl-dashboard">

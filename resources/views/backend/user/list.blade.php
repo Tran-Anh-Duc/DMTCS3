@@ -1,3 +1,4 @@
+
 @extends("backend.layout.master")
 @section("content")
 <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--4-col-phone " >
@@ -26,3 +27,4 @@
     </table>
 </div>
 @endsection
+
