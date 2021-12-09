@@ -17,7 +17,12 @@
                             <i class="material-icons">keyboard_arrow_down</i>
                         </a>
                         <div class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="{{route("tables.showFormCreate")}}">
+                            <a class="mdl-navigation__link" href="{{route("products.list")}}">
+                                List Product
+                            </a>
+                        </div>
+                        <div class="mdl-navigation">
+                            <a class="mdl-navigation__link" href="{{route('products.create')}}">
                                 Create New Product
                             </a>
                         </div>

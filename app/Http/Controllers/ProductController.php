@@ -48,8 +48,9 @@ class ProductController extends Controller implements BaseInterface
 
     public function showFormEdit($id)
     {
+        $categories = $this->categoryRepository->getAll();
         $product = $this->productRepository->getById($id);
-        return view("backend.product.edit",compact("product"));
+        return view("backend.product.edit",compact("product","categories"));
     }
 
     public function update(Request $request, $id)
