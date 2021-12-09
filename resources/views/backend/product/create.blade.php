@@ -21,13 +21,12 @@
             <th>Image</th>
             <td><input type="file" name="image"></td>
         </tr>
-        {{--        --}}{{--    <tr>--}}
-        {{--        --}}{{--    <select>--}}
-        {{--        --}}{{--    @foreach($categories as $category)--}}
-        {{--        --}}{{--            <option value="{{$category->id}}">{{$category->name}}</option>--}}
-        {{--        --}}{{--    @endforeach--}}
-        {{--        --}}{{--    </select>--}}
-        {{--        --}}{{--    </tr>--}}
+        <select style="margin-left: 15px;margin-bottom: 30px;width: 250px" class="custom-select"
+                name="category">
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select><br>
         <tr>
             <td>
                 <a href="{{route('products.list')}}">Back</a>

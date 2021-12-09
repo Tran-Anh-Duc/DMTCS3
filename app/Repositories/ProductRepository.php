@@ -18,6 +18,8 @@ class ProductRepository extends BaseRepository
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product['category_id'] = $request->input('category');
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $link = time() . '.' . $image->getClientOriginalExtension();

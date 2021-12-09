@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,11 @@ class CategoryController extends Controller implements BaseInterface
 
     public function store(Request $request)
     {
+        $request->validate([
+            "name" => "required| max:20 | min:3",
+            "price" => "required",
+            "description" => "required"
+        ]);
         $category = $this->CategoryRepository->create($request);
         return redirect()->route('categories.index');
     }
@@ -38,6 +44,11 @@ class CategoryController extends Controller implements BaseInterface
 
     public function update(Request $request,$id)
     {
+        $request->validate([
+            "name" => "required| max:20 | min:3",
+            "price" => "required",
+            "description" => "required"
+        ]);
         $category = $this->CategoryRepository->edit($request,$id);
         return redirect()->route('categories.index');
     }

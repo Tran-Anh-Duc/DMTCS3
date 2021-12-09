@@ -6,7 +6,7 @@ use App\Models\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class TableRepository extends  BaseRepositories
+class TableRepository extends  BaseRepository
 {
 
     public function __construct(Table $table)

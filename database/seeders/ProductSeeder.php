@@ -15,12 +15,14 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            ["name" => "Trà sữa","price" => "20000"],
-            ["name" => "Trà tắc","price" => "21000"],
-            ["name" => "Trà đào","price" => "22000"],
-            ["name" => "Nước cam","price" => "23000"],
-            ["name" => "Cafe","price" => "25000"],
-            ["name" => "Bạc xỉu","price" => "30000"]
+
+           ["name"=>"trà sữa","price"=>"20000","category_id"=>1],
+           ["name"=>"Trà tắc","price"=>"21000","category_id"=>2],
+           ["name"=>"Trà Đào","price"=>"22000","category_id"=>3],
+           ["name"=>"Nước cam","price"=>"23000","category_id"=>1],
+           ["name"=>"Cafe","price"=>"25000","category_id"=>2],
+           ["name"=>"Bạc sỉu","price"=>"30000","category_id"=>3],
+
         ]);
     }
 }

@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\InterfaceController\BaseInterface;
+use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends Controller implements BaseInterface
 {
     protected $productRepository;
+    protected $categoryRepository;
 
-    public function __construct(ProductRepository $productRepository)
+    public function __construct(ProductRepository $productRepository ,CategoryRepository $categoryRepository)
     {
         $this->productRepository = $productRepository;
+        $this->categoryRepository =$categoryRepository;
     }
 
     public function index()
@@ -22,10 +26,11 @@ class ProductController extends Controller
 
     public function showFormCreate()
     {
-        return view("backend.product.create");
+        $categories = $this->categoryRepository->getAll();
+        return view("backend.product.create",compact('categories'));
     }
 
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             "name" => "required| max:20 | min:3",
@@ -47,8 +52,12 @@ class ProductController extends Controller
         return view("backend.product.edit",compact("product"));
     }
 
-    public function edit(Request $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            "name" => "required| max:20 | min:3",
+            "price" => "required"
+        ]);
         $this->productRepository->edit($request,$id);
         return redirect()->route("products.list");
     }
