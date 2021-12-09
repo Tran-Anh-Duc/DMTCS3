@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <label for="name">Description
+        <label for="description">Description
             <input type="text" name="description" value="{{$category->description}}">
         </label>
     </div>
