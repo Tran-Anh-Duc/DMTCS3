@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,16 @@ Route::prefix('tables')->group(function (){
     Route::get('/edit/{id}',[TableController::class,'showFormEdit'])->name('tables.showFormEdit');
     Route::post('/edit/{id}',[TableController::class,'update'])->name('tables.update');
     Route::get('delete/{id}',[TableController::class,'destroy'])->name('tables.destroy');
+});
+
+Route::prefix('products')->group(function () {
+    Route::get('/',[ProductController::class,"index"])->name("products.list");
+    Route::get('/create',[ProductController::class,"showFormCreate"])->name("create.form");
+    Route::post('/create',[ProductController::class,"create"])->name("products.create");
+    Route::get('/detail/{id}',[ProductController::class,"showDetail"])->name("products.detail");
+    Route::get('/edit/{id}',[ProductController::class,"showFormEdit"])->name("edit.form");
+    Route::post('/edit/{id}',[ProductController::class,"edit"])->name("products.edit");
+    Route::get('/delete/{id}',[ProductController::class,"destroy"])->name("products.delete");
 });
 
 Route::prefix('categories')->group(function (){
