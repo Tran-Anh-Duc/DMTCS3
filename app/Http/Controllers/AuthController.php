@@ -57,6 +57,7 @@ class AuthController extends Controller
         $path = public_path('/uploads');
         $avatar->move($path, $data['avatar']);
         User::query()->create($data);
+        toastr()->success("Register success");
         return redirect()->route("login.form");
     }
 
