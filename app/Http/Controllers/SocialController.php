@@ -32,7 +32,7 @@ class SocialController extends Controller
 
 
 
-        $getInfo = Socialite::driver($provider)->user();
+        $getInfo = Socialite::driver($provider)->stateless()->user();
 
 
 
