@@ -1,4 +1,5 @@
-<!doctype html>
+@extends("backend.layout.master")
+@section()<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

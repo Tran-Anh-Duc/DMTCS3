@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
+use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
@@ -37,6 +38,8 @@ class ProductController extends Controller implements BaseInterface
             "price" => "required"
         ]);
         $this->productRepository->create($request);
+//        session()->flash("success","Create Success");
+        toastr()->success("Create success");
         return redirect()->route('products.list');
     }
 
@@ -59,12 +62,14 @@ class ProductController extends Controller implements BaseInterface
             "price" => "required"
         ]);
         $this->productRepository->edit($request,$id);
+        toastr()->success("Update success");
         return redirect()->route("products.list");
     }
 
     public function destroy($id)
     {
         $this->productRepository->delete($id);
+        toastr()->success("Delete success");
         return redirect()->route("products.list");
     }
 }

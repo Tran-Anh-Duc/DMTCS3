@@ -1,3 +1,6 @@
+@extends("backend.layout.master")
+@section("content")
+
 <form action="{{route('products.create')}}" method="post" enctype="multipart/form-data">
     @csrf
     <table>
@@ -35,4 +38,5 @@
         </tr>
     </table>
 </form>
+@endsection
 
