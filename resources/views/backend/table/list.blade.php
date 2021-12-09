@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Table</title>
     <style>
-        .card {background: black;}
 
         .card-body {
             background: #060000;
@@ -18,13 +17,12 @@
     </style>
 </head>
 <body>
-
         <div class="container">
             <div class="row">
                 @foreach($tables as $key => $table)
                 <div class="col-4 mt-5 mb-5">
-                    <div style="width: 80%; padding: 30px ;border-radius: 50px" class="card">
-                        <a href="{{route("users.list")}}">
+                    <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black" class="card">
+                        <a href="{{route("products.order", $table->id)}}">
                         <img style="width: 100%" src="{{asset("upload/table1.png")}}"  class="card-img-top">
                         </a>
                         <div class="card-body">

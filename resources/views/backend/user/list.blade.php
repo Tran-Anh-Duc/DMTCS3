@@ -7,6 +7,8 @@
             <th class="mdl-data-table__cell--non-numeric">ID</th>
             <th class="mdl-data-table__cell--non-numeric">Name</th>
             <th class="mdl-data-table__cell--non-numeric">Email</th>
+            <th class="mdl-data-table__cell--non-numeric">Avatar</th>
+            <th class="mdl-data-table__cell--non-numeric">Role</th>
         </tr>
         </thead>
         <tbody>
@@ -15,6 +17,9 @@
             <td class="mdl-data-table__cell--non-numeric">{{$user->id}}</td>
             <td class="mdl-data-table__cell--non-numeric">{{$user->name}}</td>
             <td class="mdl-data-table__cell--non-numeric">{{$user->email}}</td>
+            <td> <img src="{{$user->avatar}}"></td>
+            <td class="mdl-data-table__cell--non-numeric">{{$user->role->name}}</td>
+
         </tr>
         @endforeach
         </tbody>

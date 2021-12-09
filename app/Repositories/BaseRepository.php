@@ -8,7 +8,7 @@ class BaseRepository implements BaseRepositoryInterface
 {
     protected $models;
 
-    public function __construct(Model $models)
+    public function __construct($models)
     {
         $this->models = $models;
     }

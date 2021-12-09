@@ -40,6 +40,7 @@ Route::prefix('products')->group(function () {
     Route::post('/edit/{id}', [ProductController::class, "update"])->name("products.edit");
     Route::get('/delete/{id}', [ProductController::class, "destroy"])->name("products.delete");
     Route::get('/detail/{id}', [ProductController::class, "showDetail"])->name("products.detail");
+    Route::get('/order/{id}', [ProductController::class, "showTableDetail"])->name("products.order");
 
 });
 
