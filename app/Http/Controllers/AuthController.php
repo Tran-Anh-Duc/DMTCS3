@@ -19,13 +19,14 @@ class AuthController extends Controller
     {
         $request->validate([
            "email" => "required",
-           "password" => "required"
+           "password" => "required| max:20 | min:6"
         ]);
         $data = $request->only("email", "password");
         if (Auth::attempt($data)) {
             return redirect()->route("users.list");
         }else{
-            dd("login fail" );
+//            dd("login fail" );
+            return redirect()->back();
         }
     }
 
@@ -46,7 +47,7 @@ class AuthController extends Controller
         $request->validate([
            "name" => "required",
            "email" => "required",
-           "password" => "required|min:6"
+           "password" => "required| max:20 | min:6"
         ]);
         $data = $request->only("name", "email", "password","avatar");
         $avatar = $request->file('file');
