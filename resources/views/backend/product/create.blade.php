@@ -1,6 +1,6 @@
 
-@extends('backend.layout.master')
-@section('content')
+@extends("backend.layout.master")
+@section("content")
 <form action="{{route('products.create')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div style="margin-top:50px;margin-left: 200px ">
@@ -39,6 +39,7 @@
 
 
     </table>
+
     </div>
     <div style="margin-left: 200px">
         <a href="{{route('products.list')}}">

@@ -1,6 +1,8 @@
 
+
 @extends('backend.layout.master')
 @section('content')
+
 <form method="post" enctype="multipart/form-data">
     @csrf
     <div style="margin-top:50px;margin-left: 200px ">
@@ -45,8 +47,6 @@
         <button class="btn btn-primary" type="submit">Add Product</button>
     </div>
 </form>
-
-
 
 @endsection
 
