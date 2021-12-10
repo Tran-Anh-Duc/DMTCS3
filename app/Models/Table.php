@@ -15,13 +15,16 @@ use Illuminate\Database\Eloquent\Model;
 class Table extends Model
 {
     use HasFactory;
-     protected $fillable=[
-       'name',
-         "status_id"
-     ];
+
+    protected $fillable = [
+        'name',
+        "status_id"
+    ];
 
     public function statuses()
     {
         return $this->hasMany(Status::class);
     }
 }
+
+

@@ -40,6 +40,7 @@ Route::prefix('products')->group(function () {
     Route::post('/edit/{id}', [ProductController::class, "update"])->name("products.edit");
     Route::get('/delete/{id}', [ProductController::class, "destroy"])->name("products.delete");
     Route::get('/detail/{id}', [ProductController::class, "showDetail"])->name("products.detail");
+    Route::get('/order/{id}', [ProductController::class, "showOrder"])->name("products.order");
 
 });
 
@@ -63,7 +64,10 @@ Route::prefix("/auth")->group(function () {
 });
 
 Route::prefix("/users")->group(function(){
-    Route::get("/list", [UserController::class, "index"])->name("users.list");
+    Route::get("/", [UserController::class, "index"])->name("users.list");
+    Route::get("/edit/{id}", [UserController::class, "showFormEdit"])->name("users.showFormEdit");
+    Route::post("/edit/{id}", [UserController::class, "edit"])->name("users.edit");
+    Route::get("/delete/{id}", [UserController::class, "delete"])->name("users.delete");
 });
 
 Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
