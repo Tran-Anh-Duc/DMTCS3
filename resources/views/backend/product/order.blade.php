@@ -13,9 +13,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 ">
-           <a ></a>
+
+{{--                <a href="{{route("products.order", $tables->id)}}" class="btn btn-success">GetAll</a>--}}
+
             @foreach($categories as $key => $category)
-{{--                <a href="{{route("products.order", )}}" class="btn btn-success">GetAll</a>--}}
+
             <a href="?category={{$category->id}}" class="btn btn-success">{{$category->name}}</a>
             @endforeach
             {{-- card--}}
@@ -38,6 +40,7 @@
                     @endforeach
                 </div>
             </div>
+
         </div>
         {{--<collum 2 >--}}
         <div class="col-lg-4">

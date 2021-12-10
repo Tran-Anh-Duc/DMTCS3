@@ -74,9 +74,11 @@ class ProductController extends Controller
 
     public function showOrder($id)
     {
+
+        $tables = $this->tableRepository->getAll();
         $detail = $this->tableRepository->getById($id);
         $products = $this->productRepository->getAll();
         $categories = $this->categoryRepository->getAll();
-        return view("backend.product.order", compact("products", "categories", "detail"));
+        return view("backend.product.order", compact("products", "categories", "detail", "tables"));
     }
 }
