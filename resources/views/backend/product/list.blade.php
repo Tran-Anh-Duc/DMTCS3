@@ -45,16 +45,15 @@
                             <img style="width: 100%" src="{{asset("image/$product->image")}}" >
                             <h4 class="card-title">{{$product["name"]}}</h4>
                             <h4 class="card-text">{{number_format($product["price"]). "₫"}}</h4>
-                            <a style="width: 20px" type="button" class="btn btn-warning" href="{{route('products.detail', $product->id)}}">
+                            <a style="width: 20px" type="button" class="btn btn-success" href="{{route('products.detail', $product->id)}}">
                                 <i class="fas fa-info"></i>
 
                             </a>
-                            <a type="button" class="btn btn-success" href="{{route('edit.form',$product->id)}}">
-                                Update
+                            <a type="button" class="btn btn-warning" href="{{route('edit.form',$product->id)}}">
+                                <i class="fad fa-edit"></i>
                             </a>
                             <a type="button" class="btn btn-danger" onclick="return confirm('Are you sure ??')"
-                               href="{{route('products.delete',$product->id)}}">
-                                Delete
+                               href="{{route('products.delete',$product->id)}}"><i class="fas fa-trash-alt"></i>
                             </a>
                         </div>
                     </div>
