@@ -23,7 +23,7 @@
 <body>
             <div class="row">
                 @foreach($tables as $key => $table)
-                <div class="col-4 mt-5 mb-5">
+                <div class="col-4 mt-5 mb-5 ">
                     <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black" class="card {{ (session()->has("table-".$table->id) && count(session()->get("table-".$table->id))>0)?"ordered":"" }}">
                         <a href="{{route("products.order", $table->id)}}">
                         <img style="width: 100%" src="{{asset("upload/table1.png")}}"  class="card-img-top" alt="">
