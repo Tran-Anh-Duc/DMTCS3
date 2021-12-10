@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
+use App\Repositories\CategoryRepository;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
 {
     protected $tableRepository;
+    protected $categoryRepository;
 
-    public function __construct(TableRepository $tableRepository)
+    public function __construct(TableRepository $tableRepository, CategoryRepository $categoryRepository)
     {
         $this->tableRepository = $tableRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function index()
     {
+        $category = $this->categoryRepository->getAll();
         $tables = $this->tableRepository->getAll();
-        return view('backend.table.list',compact('tables'));
+        return view('backend.table.list',compact('tables', "category"));
     }
 
     public function showFormCreate()

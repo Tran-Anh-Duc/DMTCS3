@@ -15,15 +15,14 @@
         <div class="col-lg-8 ">
            <a ></a>
             @foreach($categories as $key => $category)
+{{--                <a href="{{route("products.order", )}}" class="btn btn-success">GetAll</a>--}}
             <a href="?category={{$category->id}}" class="btn btn-success">{{$category->name}}</a>
             @endforeach
-
-
             {{-- card--}}
             <div class="container">
                 <div class="row">
                     @foreach($products as $key => $product)
-                        @if($product->category_id == $_GET["category"])
+                        @if(!isset($_GET["category"])  ||$product->category_id == $_GET["category"])
                         <div class="col-6 mt-5 ">
                             <div class="card">
                                 <div class="card-inner ">
