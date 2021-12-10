@@ -32,7 +32,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getAll();
         return view("backend.product.create",compact('categories'));
     }
-
+//commit new
     public function store(Request $request)
     {
         $request->validate([
