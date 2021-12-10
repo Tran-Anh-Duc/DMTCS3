@@ -16,7 +16,7 @@
         }
 
         .ordered{
-            background-color: green!important;
+            background-color: #f7f8f7!important;
         }
     </style>
 </head>
