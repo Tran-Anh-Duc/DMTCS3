@@ -18,15 +18,15 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-           "email" => "required",
-           "password" => "required| max:20 | min:5"
+           "email" => "required|email",
+           "password" => "required"
         ]);
         $data = $request->only("email", "password");
         if (Auth::attempt($data)) {
-            toastr()->success("Hello ". Auth::user()->name ?? "");
-            return redirect()->route("users.list");
+            toastr()->success("Hello, ". Auth::user()->name ?? "");
+            return redirect()->route("tables.index");
         }else{
-            toastr()->error("Login fail");
+            toastr()->error("User or password not correct");
             return redirect()->back();
         }
     }
@@ -47,14 +47,14 @@ class AuthController extends Controller
     {
         $request->validate([
            "name" => "required",
-           "email" => "required",
+           "email" => "required|email",
            "password" => "required| max:20 | min:5"
         ]);
         $data = $request->only("name", "email", "password","avatar");
         $avatar = $request->file('file');
         $data["password"] = Hash::make($request->password);
         $data["avatar"] = time().'.'.$avatar->getClientOriginalExtension();
-        $path = public_path('/uploads');
+        $path = public_path('image');
         $avatar->move($path, $data['avatar']);
         User::query()->create($data);
         toastr()->success("Register success");

@@ -1,5 +1,9 @@
 <div class="mdl-layout__drawer">
-    <header>darkboard</header>
+    @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
+        <header>Manager</header>
+    @else
+        <header>Admin</header>
+    @endif
     <div class="scroll__wrapper" id="scroll__wrapper">
         <div class="scroller" id="scroller">
             <div class="scroll__container" id="scroll__container">
@@ -7,7 +11,6 @@
                     <a class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.index")}}">
                         <i class="material-icons" role="presentation">dashboard</i>
                         Table
-
                     </a>
                     <hr>
                     <div class="sub-navigation">
@@ -28,7 +31,7 @@
                         </div>
                     </div>
                     <hr>
-                        @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
+                    @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
                     <a class="mdl-navigation__link" href="{{route("users.list")}}">
                         <i class="material-icons" role="presentation">person</i>
                         Account
