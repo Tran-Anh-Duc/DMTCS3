@@ -17,14 +17,12 @@
     </style>
 </head>
 <body>
-
-        <div class="container">
             <div class="row">
                 @foreach($tables as $key => $table)
                 <div class="col-4 mt-5 mb-5">
                     <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black" class="card">
                         <a href="{{route("products.order", $table->id)}}">
-                        <img style="width: 100%" src="{{asset("upload/table1.png")}}"  class="card-img-top">
+                        <img style="width: 100%" src="{{asset("upload/table1.png")}}"  class="card-img-top" alt="">
                         </a>
                         <div class="card-body">
                             <h5 class="card-title" style="color: white; text-align: center">{{$table->name}}</h5>
@@ -33,33 +31,6 @@
                 </div>
                 @endforeach
             </div>
-        </div>
-
-<div>
-    <a href="{{route('tables.showFormCreate')}}">Add New Category</a>
-</div>
-<table border="1px">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($tables as $key=>$table)
-        <tr>
-            <td>{{$key+1}}</td>
-            <td>{{$table->name}}</td>
-            <td><a type="button" href="{{route("tables.showFormEdit",$table->id)}}">Edit</a></td>
-            <td><a type="button" onclick="return confirm(' Are you sure ? ')" href="{{route('tables.destroy',$table->id)}}">Delete</a></td>
-        </tr>
-
-    @endforeach
-    </tbody>
-</table>
-
-
 </body>
 </html>
 @endsection
