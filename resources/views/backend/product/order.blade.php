@@ -23,11 +23,11 @@
             <div class="container">
                 <div class="row">
                     @foreach($products as $key => $product)
-                        @if($product->category_id == $_GET["category"])
+                        @if(!isset($_GET["category"])  ||  $product->category_id == $_GET["category"])
                         <div class="col-6 mt-5 ">
                             <div class="card">
                                 <div class="card-inner ">
-                                    <a>
+                                    <a href="{{ route("tables.addToOrder",[$product->id,$detail->id]) }}">
                                     <img style="width: 100%" src="{{asset("image/$product->image")}}">
                                     </a>
                                     <h4 class="card-title" style="text-align: center">{{$product["name"]}}</h4>
@@ -42,7 +42,10 @@
         </div>
         {{--<collum 2 >--}}
         <div class="col-lg-4">
-
+            <p style="color: white">
+                Order: {{ session()->has('table-'.$detail->id)?count(session()->get('table-'.$detail->id)):0 }}
+{{--                {{session()->has('table-'.$detail->id)?dd(session()->get('table-'.$detail->id)):null}}--}}
+            </p>
         </div>
     </div>
 </div>

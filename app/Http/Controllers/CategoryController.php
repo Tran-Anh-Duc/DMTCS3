@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller implements BaseInterface
+class CategoryController extends Controller
 {
     protected $CategoryRepository;
 

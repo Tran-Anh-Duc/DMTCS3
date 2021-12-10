@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
+use App\Models\Product;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,17 @@ class TableController extends Controller
         $table = $this->tableRepository->getById($id);
         $this->tableRepository->delete($id);
         return redirect()->route('tables.index');
+    }
+
+    public function addToOrder($productId, $tableId)
+    {
+        $tableName = "table-".$tableId;
+        $order = session()->get($tableName) ?? [];
+        $product = Product::where("id",$productId)->first();
+        $order[$productId] = $product;
+        session()->put($tableName, $order);
+        return redirect()->back();
+
     }
 
     function showDetail($id)
