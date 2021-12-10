@@ -40,7 +40,6 @@ class ProductController extends Controller
             "price" => "required"
         ]);
         $this->productRepository->create($request);
-//        session()->flash("success","Create Success");
         toastr()->success("Create success");
         return redirect()->route('products.list');
     }
@@ -60,10 +59,7 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            "name" => "required| max:20 | min:3",
-            "price" => "required"
-        ]);
+
         $this->productRepository->edit($request,$id);
         toastr()->success("Update success");
         return redirect()->route("products.list");

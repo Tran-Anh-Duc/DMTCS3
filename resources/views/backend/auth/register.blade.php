@@ -78,20 +78,24 @@
                 </div>
                 <br><br>
                 <div class="row">
+                    <div class="col-6">
+
+
                 <div class="container-login100-form-btn" >
                 <button type="submit" name="submit" class="login100-form-btn">
                     Upload Files Image
                 </button>
                 </div>
-                <br><br>
 
+                    </div>
+                    <div class="col-6">
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">
+                                Sign up now
+                            </button>
+                        </div>
+                    </div>
 
-
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
-                        Sign up now
-                    </button>
-                </div>
                 </div>
 
                 <div class="text-center p-t-46 p-b-20">
