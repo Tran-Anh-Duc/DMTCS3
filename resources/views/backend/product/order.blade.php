@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="row">
                     @foreach($products as $key => $product)
-                        @if($product->category_id == $_GET["category"])
+                        @if( !isset($_GET["category"])||$product->category_id == $_GET["category"])
                         <div class="col-6 mt-5 ">
                             <div class="card">
                                 <div class="card-inner ">
