@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -14,10 +15,25 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-           ["name"=>"wine1","description"=>"wineFruit1"],
-           ["name"=>"wine2","description"=>"wineFruit2"],
-           ["name"=>"wine3","description"=>"wineFruit3"],
-        ]);
+       $category = new Category();
+       $category->name = "Trà";
+       $category->description = "Trà";
+       $category->save();
+
+       $category = new Category();
+       $category->name = "Trà sữa";
+       $category->description = "Trà sữa";
+       $category->save();
+
+       $category = new Category();
+       $category->name = "Cafe";
+       $category->description = "Cafe";
+       $category->save();
+
+       $category = new Category();
+       $category->name = "Nước trái cây";
+       $category->description = "Juice";
+       $category->save();
+
     }
 }

@@ -15,5 +15,11 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     {
         parent::__construct($user);
     }
+    public function edit(\Illuminate\Http\Request $request, $id)
+    {
+        $data = $request->only("name", "email", "role_id");
+        User::query()->findOrFail($id);
+        return User::query()->where("id", "=", $id)->update($data);
+    }
 
 }

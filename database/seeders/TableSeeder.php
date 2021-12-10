@@ -18,6 +18,9 @@ class TableSeeder extends Seeder
            ["name"=>"Bàn số 1"],
            ["name"=>"Bàn số 2"],
            ["name"=>"Bàn số 3"],
+           ["name"=>"Bàn số 4"],
+           ["name"=>"Bàn số 5"],
+           ["name"=>"Bàn số 6"],
         ]);
     }
 }
