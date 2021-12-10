@@ -30,6 +30,7 @@ Route::prefix('tables')->group(function () {
     Route::get('/edit/{id}', [TableController::class, 'showFormEdit'])->name('tables.showFormEdit');
     Route::post('/edit/{id}', [TableController::class, 'update'])->name('tables.update');
     Route::get('delete/{id}', [TableController::class, 'destroy'])->name('tables.destroy');
+    Route::get('addToOrder/{productId}/table/{tableId}', [TableController::class, 'addToOrder'])->name('tables.addToOrder');
 });
 
 Route::prefix('products')->group(function () {
