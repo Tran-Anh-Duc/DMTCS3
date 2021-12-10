@@ -25,7 +25,7 @@
             <td>
             <select style="margin-left: 15px;margin-bottom: 30px;width: 250px" class="custom-select"
                     name="category" >
-                <option value="">Category</option>
+                <option>Category</option>
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
@@ -33,7 +33,6 @@
             </td>
         </tr>
         <tr>
-
             <td><input type="file" name="image"></td>
         </tr>
 
@@ -42,8 +41,7 @@
 
     </div>
     <div style="margin-left: 200px">
-        <a href="{{route('products.list')}}">
-            <button class="btn btn-primary">Back</button></a>
+        <a href="{{route('products.list')}}" class="btn btn-primary">Back</a>
         <button class="btn btn-primary" type="submit">Add Product</button>
     </div>
 

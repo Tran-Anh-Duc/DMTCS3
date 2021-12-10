@@ -3,9 +3,10 @@
 namespace App\Repositories;
 
 use App\Models\Product;
+use App\Repositories\ipl\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
-class ProductRepository extends BaseRepository
+class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
     public function __construct(Product $product)
     {

@@ -3,10 +3,11 @@
 namespace App\Repositories;
 
 use App\Models\Table;
+use App\Repositories\ipl\TableRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class TableRepository extends  BaseRepository
+class TableRepository extends  BaseRepository implements TableRepositoryInterface
 {
 
     public function __construct(Table $table)
@@ -14,7 +15,7 @@ class TableRepository extends  BaseRepository
         parent::__construct($table);
     }
 
-    public function Create(Request $request)
+    public function create(Request $request)
     {
         $data = $request->only('name');
         $table = Table::create($data);

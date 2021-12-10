@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller implements BaseInterface
+class ProductController extends Controller
 {
     protected $productRepository;
     protected $categoryRepository;
@@ -37,7 +36,7 @@ class ProductController extends Controller implements BaseInterface
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required| max:20 | min:3",
+            "name" => "required| max:20 | min:5",
             "price" => "required"
         ]);
         $this->productRepository->create($request);
@@ -73,7 +72,7 @@ class ProductController extends Controller implements BaseInterface
         return redirect()->route("products.list");
     }
 
-    public function showTableDetail($id)
+    public function showOrder($id)
     {
         $detail = $this->tableRepository->getById($id);
         $products = $this->productRepository->getAll();

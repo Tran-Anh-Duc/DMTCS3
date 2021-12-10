@@ -14,8 +14,7 @@
         </div>
         <div class="avatar-dropdown" id="icon">
             <span>{{\Illuminate\Support\Facades\Auth::user()->name ?? ""}}</span>
-            <img
-                src="{{\Illuminate\Support\Facades\Auth::user()->avatar ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
+            <img src="{{\Illuminate\Support\Facades\Auth::user()->avatar ??     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
                 style="border-radius: 50%; width: 30px; height:30px">
         </div>
         <!-- Account dropdawn-->
@@ -26,7 +25,7 @@
                         <span><img
                                 src="{{\Illuminate\Support\Facades\Auth::user()->avatar ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
                                 style="border-radius: 50%; width: 30px; height:30px"></span>
-                        <span>{{\Illuminate\Support\Facades\Auth::user()->name ?? ""}}</span>
+                        <span>{{\Illuminate\Support\Facades\Auth::user()->role->name ?? ""}}</span>
                         <span
                             class="mdl-list__item-sub-title">{{\Illuminate\Support\Facades\Auth::user()->email ?? ""}}</span>
                     </span>
@@ -41,17 +40,7 @@
                 </li>
             </a>
         </ul>
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect mdl-shadow--2dp settings-dropdown"
-            for="more">
-            <li class="mdl-menu__item">
-                Settings
-            </li>
-            <a class="mdl-menu__item" href="https://github.com/CreativeIT/getmdl-dashboard/issues">
-                Support
-            </a>
-            <li class="mdl-menu__item">
-                F.A.Q.
-            </li>
-        </ul>
+
+
     </div>
 </header>

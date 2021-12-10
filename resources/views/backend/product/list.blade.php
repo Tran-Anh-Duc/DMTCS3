@@ -7,14 +7,12 @@
             box-sizing: border-box;
             background-color: rgba(255, 255, 255, 0);
             border: none;
-
         }
         .card-inner {
             background-color: rgba(255, 255, 255, 255);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             max-width: 300px;
             text-align: center;
-            border-radius: 20px;
             font-family: arial;
         }
 
@@ -39,16 +37,14 @@
             opacity: 0.7;
         }
     </style>
-    <div class="container row" style="margin-bottom: 20px">
-            <h2 style="text-align:center;color: #00b0ff">Product</h2>
+    <div class="container">
             <div class="row" >
                 @foreach($products as $product)
-                    <div class="card col-3">
-                        <div class="card-inner">
-                            <img style="width: 100%; height: 150px" src="{{ asset('image/'.$product->image)}}" alt="">
-                            <p class="price">Price: {{number_format($product["price"])}}</p>
-                            <p>Name: {{$product["name"]}}</p>
-                            <p>Category: {{$product->category->name}}</p>
+                    <div class="card col-4 mt-5 mb-5">
+                        <div class="card-inner " >
+                            <img style="width: 100%" src="{{asset("image/$product->image")}}" >
+                            <h4 class="card-title">{{$product["name"]}}</h4>
+                            <h4 class="card-text">{{number_format($product["price"]). "₫"}}</h4>
                             <a style="width: 20px" type="button" class="btn btn-warning" href="{{route('products.detail', $product->id)}}">
                                 <i class="fas fa-info"></i>
 
@@ -61,10 +57,8 @@
                                 Delete
                             </a>
                         </div>
-                        </div>
-
+                    </div>
                 @endforeach
-
             </div>
         </div>
 
