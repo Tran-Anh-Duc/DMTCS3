@@ -40,8 +40,8 @@
     <div class="container">
             <div class="row" >
                 @foreach($products as $product)
-                    <div class="card col-4 mt-5 mb-5">
-                        <div class="card-inner " >
+                    <div class="card col-4 mt-5 mb-5" >
+                        <div class="card-inner p-1" style="border-radius: 5px">
                             <img style="width: 100%" src="{{asset("image/$product->image")}}" >
                             <h4 class="card-title">{{$product["name"]}}</h4>
                             <h4 class="card-text">{{number_format($product["price"]). "₫"}}</h4>

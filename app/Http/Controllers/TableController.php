@@ -4,22 +4,26 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Product;
+use App\Repositories\StatusRepository;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
 {
     protected $tableRepository;
+    protected $statusRepository;
 
-    public function __construct(TableRepository $tableRepository)
+    public function __construct(TableRepository $tableRepository, StatusRepository $statusRepository)
     {
         $this->tableRepository = $tableRepository;
+        $this->statusRepository = $statusRepository;
     }
 
     public function index()
     {
+        $statuses = $this->statusRepository->getAll();
         $tables = $this->tableRepository->getAll();
-        return view('backend.table.list',compact('tables'));
+        return view('backend.table.list',compact('tables', "statuses"));
     }
 
     public function showFormCreate()

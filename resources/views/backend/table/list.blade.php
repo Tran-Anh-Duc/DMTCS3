@@ -15,9 +15,9 @@
             background: #060000;
         }
 
-        /*.ordered{*/
-        /*    background-color: green!important;*/
-        /*}*/
+        .ordered{
+            background-color: #f7f8f7!important;
+        }
     </style>
 </head>
 <body>
