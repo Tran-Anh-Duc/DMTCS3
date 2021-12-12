@@ -48,6 +48,7 @@
 
         <div style="margin-left: 200px">
             <a href="{{route('products.list')}}" class="btn btn-primary">Back</a>
+            <button class="btn btn-outline-success" type="submit">Update</button>
         </div>
     </form>
 
