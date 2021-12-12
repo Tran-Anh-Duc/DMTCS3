@@ -31,6 +31,8 @@ Route::prefix('tables')->group(function () {
     Route::post('/edit/{id}', [TableController::class, 'update'])->name('tables.update');
     Route::get('delete/{id}', [TableController::class, 'destroy'])->name('tables.destroy');
     Route::get('addToOrder/{productId}/table/{tableId}', [TableController::class, 'addToOrder'])->name('tables.addToOrder');
+    Route::get('deleteFromOrder/{productId}/table/{tableId}', [TableController::class, 'deleteItemOrder'])->name('tables.deleteItemOrder');
+    Route::get('paymentOrder/{tableId}', [TableController::class, 'paymentOrder'])->name('tables.paymentOrder');
 });
 
 Route::prefix('products')->group(function () {
