@@ -45,6 +45,8 @@
 
 
 {{--    <div class="modal fade" id="productEdit" aria-hidden="true">--}}
+<form method="post" enctype="multipart/form-data">
+    @csrf
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -52,8 +54,7 @@
                     <div class="form-group">
                         <label for="name" class="col-sm-2">Name</label>
                         <div class="col-sm-12">
-                            <input  type="text" value="{{$product->name}}" class="form-control" id="nameApi" name="name"
-                                   required="" class="alert alert-primary" role="alert">
+                            <input  type="text" value="{{$product->name}}" class="form-control" id="nameApi" name="name" class="alert alert-primary" role="alert">
                             @error('name')
                             <p class="text text-danger">{{$message}}</p>
                             @enderror
@@ -64,8 +65,7 @@
                     <div class="form-group">
                         <label class="col-sm-2">Price</label>
                         <div class="col-sm-12">
-                            <input type="number" value="{{$product->price}}"  role="alert" class="form-control" id="priceApi" name="price"
-                                   required="">
+                            <input type="number" value="{{$product->price}}"  role="alert" class="form-control" id="priceApi" name="price">
                             @error('price')
                             <p class="text text-danger">{{$message}}</p>
                             @enderror
@@ -76,8 +76,7 @@
                     <div class="form-group">
                         <label class="col-sm-2">Image</label>
                         <div class="col-sm-12">
-                            <input type="file" id="imageApi" name="image"
-                                   required="">
+                            <input type="file" id="imageApi" name="image">
                             <span id="taskError" class="alert-message"></span>
                         </div>
                     </div>
@@ -102,6 +101,7 @@
                 </div>
             </div>
         </div>
+    </form>
     </div>
 @endsection
 

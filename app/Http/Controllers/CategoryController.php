@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $CategoryRepository;
+    protected $categoryRepository;
 
     public function __construct(CategoryRepository  $categoryRepository)
     {
-        $this->CategoryRepository = $categoryRepository;
+        $this->categoryRepository = $categoryRepository;
     }
     public function index()
     {
-        $categories = $this->CategoryRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
         return view('backend.category.list',compact('categories'));
     }
 
@@ -26,34 +26,39 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $category = $this->CategoryRepository->create($request);
+        $this->categoryRepository->create($request);
+        $request->validate([
+            "name" => "required",
+            "description" => "required"
+        ]);
         toastr()->success("Create success");
         return redirect()->route('categories.index');
     }
 
     public function showFormEdit($id)
     {
-        $category = $this->CategoryRepository->getById($id);
+        $category = $this->categoryRepository->getById($id);
         return view('backend.category.edit',compact('category'));
     }
 
     public function update(Request $request,$id)
     {
-        $category = $this->CategoryRepository->edit($request,$id);
+        $this->categoryRepository->edit($request,$id);
         toastr()->success("Update success");
         return redirect()->route('categories.index');
     }
 
     public function destroy($id)
     {
-        $category = $this->CategoryRepository->getById($id);
-        $this->CategoryRepository->delete($id);
+//        $this->CategoryRepository->getById($id);
+        $this->categoryRepository->delete($id);
+        toastr()->success("Delete success");
         return redirect()->route('categories.index');
     }
 
     public function showDetail($id)
     {
-        $category = $this->CategoryRepository->getById($id);
+        $category = $this->categoryRepository->getById($id);
         return view('backend.category.detail',compact('category'));
     }
 

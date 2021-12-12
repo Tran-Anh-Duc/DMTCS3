@@ -25,6 +25,8 @@
 
 
 {{--<div class="modal fade" id="categoryCreate" aria-hidden="true">--}}
+<form action="" method="post">
+    @csrf
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -51,7 +53,6 @@
                     </div>
                 </div>
 
-
             </div>
             <div class="modal-footer">
                 <a  class="btn btn-success" type="button" href="{{route('categories.index')}}">Back</a>
@@ -60,6 +61,7 @@
 
         </div>
     </div>
+</form>
 </div>
 @endsection
 

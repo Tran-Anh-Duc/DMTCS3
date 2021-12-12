@@ -49,6 +49,8 @@
 
 
 {{--<div class="modal fade" id="productCreate" aria-hidden="true">--}}
+<form action="{{route('products.create')}}" method="post" enctype="multipart/form-data">
+    @csrf
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -56,7 +58,7 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-2">Name</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="nameApi" name="name" placeholder="Enter name" required="">
+                        <input type="text" class="form-control" id="nameApi" name="name" placeholder="Enter name">
                         @error('name')
                         <p class="text text-danger">{{$message}}</p>
                         @enderror
@@ -67,7 +69,7 @@
                 <div class="form-group">
                     <label class="col-sm-2">Price</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="priceApi" name="price" placeholder="Enter price" required="">
+                        <input type="text" class="form-control" id="priceApi" name="price" placeholder="Enter price">
                         @error('price')
                         <p class="text text-danger">{{$message}}</p>
                         @enderror
@@ -78,7 +80,6 @@
                 <div class="form-group">
                     <label class="col-sm-2">Category</label>
                     <div class="col-sm-12" id="categorytApi">
-{{--                        <input type="text" class="form-control" id="categorytApi" name="category" placeholder="Enter category" required="">--}}
                         <select style="margin-left: 15px;margin-bottom: 30px;width: 250px" class="custom-select" id="categorytApi" name="category"
                                 name="category" >
                             <option>Category</option>
@@ -97,5 +98,6 @@
             </div>
         </div>
     </div>
+</form>
 </div>
 @endsection

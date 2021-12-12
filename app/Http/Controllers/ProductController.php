@@ -32,14 +32,14 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getAll();
         return view("backend.product.create",compact('categories'));
     }
-//commit new
+
     public function store(Request $request)
     {
+        $this->productRepository->create($request);
         $request->validate([
             "name" => "required| max:20 | min:5",
             "price" => "required"
         ]);
-        $this->productRepository->create($request);
         toastr()->success("Create success");
         return redirect()->route('products.list');
     }

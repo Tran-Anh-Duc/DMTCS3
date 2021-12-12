@@ -29,5 +29,4 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         $data = $request->only('name', 'description');
         return Category::where('id', '=', $id)->update($data);
     }
-
 }
