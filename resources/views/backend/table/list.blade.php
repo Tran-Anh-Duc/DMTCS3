@@ -17,8 +17,13 @@
             cursor: pointer;
         }
 
-        .card-body:hover {
-            background: green;
+
+        /*.card-body:hover {*/
+        /*    background: green;*/
+
+        .ordered{
+            background-color: #f7f8f7!important;
+
         }
 
 
