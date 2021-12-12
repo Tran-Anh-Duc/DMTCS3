@@ -4,26 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
+use App\Repositories\ProductRepository;
 use App\Repositories\StatusRepository;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class TableController extends Controller
 {
+    protected $productRepository;
     protected $tableRepository;
     protected $statusRepository;
 
-    public function __construct(TableRepository $tableRepository, StatusRepository $statusRepository)
+    public function __construct(TableRepository $tableRepository, StatusRepository $statusRepository, ProductRepository $productRepository)
     {
         $this->tableRepository = $tableRepository;
         $this->statusRepository = $statusRepository;
+        $this->productRepository = $productRepository;
     }
 
     public function index()
     {
         $statuses = $this->statusRepository->getAll();
         $tables = $this->tableRepository->getAll();
-        return view('backend.table.list',compact('tables', "statuses"));
+        return view('backend.table.list', compact('tables', "statuses"));
     }
 
     public function showFormCreate()
@@ -40,12 +44,12 @@ class TableController extends Controller
     public function showFormEdit($id)
     {
         $table = $this->tableRepository->getById($id);
-        return view('backend.table.edit',compact('table'));
+        return view('backend.table.edit', compact('table'));
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
-        $table = $this->tableRepository->edit($request,$id);
+        $table = $this->tableRepository->edit($request, $id);
         return redirect()->route('tables.index');
     }
 
@@ -58,17 +62,46 @@ class TableController extends Controller
 
     public function addToOrder($productId, $tableId)
     {
-        $tableName = "table-".$tableId;
+
+        $tableName = "table-" . $tableId;
         $order = session()->get($tableName) ?? [];
-        $product = Product::where("id",$productId)->first();
-        $order[$productId] = $product;
+        $product = $this->productRepository->getById($productId);
+        if (!isset($order[$productId])) {
+            $order[$productId] = array(
+                "id" => $product->id,
+                "name" => $product->name,
+                "price" => $product->price,
+                "quantity" => 1
+            );
+        } else {
+            $order[$productId]["quantity"]++;
+        }
         session()->put($tableName, $order);
         return redirect()->back();
-
     }
 
-    function showDetail($id)
+    function deleteItemOrder($productId, $tableId)
     {
-        // TODO: Implement showDetail() method.
+        $tableName = "table-" . $tableId;
+        $order = session()->get($tableName) ?? [];
+        if ($order[$productId]["quantity"] > 1) {
+            $order[$productId]["quantity"]--;
+        } else  {
+            unset($order[$productId]);
+        }
+        session()->put($tableName, $order);
+        return redirect()->back();
     }
+
+    public function paymentOrder($tableId)
+    {
+
+        $tableName = "table-" . $tableId;
+        session()->forget($tableName);
+        return redirect()->back();
+    }
+
+
+
+
 }
