@@ -40,12 +40,12 @@
         }
     </style>
         <form class="form-inline my-2 my-lg-0" action="{{ route('products.search') }}" method="GET">
-            <input style="width: 800px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <input id="search-product" style="width: 800px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             <a class="btn btn-outline-success" href="{{route('products.list')}}" type="button">Back</a>
         </form>
-    <div class="container">
-            <div class="row" >
+    <div class="container" >
+            <div class="row" id="product-list" >
                 @foreach($products as $product)
                     <div class="card col-4 mt-5 mb-5" >
                         <div class="card-inner p-1" style="border-radius: 5px">
@@ -69,6 +69,6 @@
 
             </div>
         </div>
-
+<script src="{{asset("js/product.js")}}"></script>
 @endsection
 

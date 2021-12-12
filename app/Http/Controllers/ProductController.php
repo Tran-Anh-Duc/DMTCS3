@@ -89,6 +89,12 @@ class ProductController extends Controller
         return view('backend.product.search',compact('products'));
     }
 
+    public function displayProduct()
+    {
+        $products = $this->productRepository->getAll();
+        return response()->json($products, 200);
+    }
+
 
 
 }

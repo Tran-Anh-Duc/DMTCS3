@@ -128,7 +128,7 @@
 <!--===============================================================================================-->
 <script src="{{asset("login/vendor/countdowntime/countdowntime.js")}}"></script>
 <!--===============================================================================================-->
-<script src="{{asset("login/js/main.js")}}"></script>
+<script src="{{asset("login/js/product.js")}}"></script>
 
 </body>
 </html>
