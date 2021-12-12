@@ -1,13 +1,25 @@
 @extends("backend.layout.master")
 @section('content')
-
+    <style>
+        td{
+            height: 120px;
+            width: 40px;
+        }
+        th{
+            height: 60px;
+            width: 40px;
+        }
+    </style>
+<div class="card" style="width: 1000px" >
+    <div class="container">
+    <h2 style="text-align: center;margin-top: 20px">Manager Category</h2>
 <table border="1px" class="table table-dark" style="margin-top: 50px">
     <thead>
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th colspan="3">Action</th>
+        <th colspan="3" style="text-align: center">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -23,5 +35,6 @@
     @endforeach
     </tbody>
 </table>
-
+</div>
+</div>
 @endsection

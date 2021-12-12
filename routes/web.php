@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::middleware('auth')->group(function () {
 Route::prefix('tables')->group(function () {
     Route::get('/', [TableController::class, 'index'])->name('tables.index');
     Route::get('/create', [TableController::class, 'showFormCreate'])->name('tables.showFormCreate');
@@ -42,6 +42,7 @@ Route::prefix('products')->group(function () {
     Route::get('/delete/{id}', [ProductController::class, "destroy"])->name("products.delete");
     Route::get('/detail/{id}', [ProductController::class, "showDetail"])->name("products.detail");
     Route::get('/order/{id}', [ProductController::class, "showOrder"])->name("products.order");
+    Route::get('/search/', [ProductController::class, "search"])->name("products.search");
 
 });
 
@@ -54,7 +55,13 @@ Route::prefix('categories')->group(function () {
     Route::get('/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::get('/detail/{id}', [CategoryController::class, 'showDetail'])->name('categories.showDetail');
 });
-
+    Route::prefix("/users")->group(function(){
+        Route::get("/", [UserController::class, "index"])->name("users.list");
+        Route::get("/edit/{id}", [UserController::class, "showFormEdit"])->name("users.showFormEdit");
+        Route::post("/edit/{id}", [UserController::class, "edit"])->name("users.edit");
+        Route::get("/delete/{id}", [UserController::class, "delete"])->name("users.delete");
+    });
+});
 
 Route::prefix("/auth")->group(function () {
     Route::get("/login", [AuthController::class, "showFormLogin"])->name("login.form");
@@ -64,12 +71,7 @@ Route::prefix("/auth")->group(function () {
     Route::post("/register", [AuthController::class, "register"])->name("auth.register");
 });
 
-Route::prefix("/users")->group(function(){
-    Route::get("/", [UserController::class, "index"])->name("users.list");
-    Route::get("/edit/{id}", [UserController::class, "showFormEdit"])->name("users.showFormEdit");
-    Route::post("/edit/{id}", [UserController::class, "edit"])->name("users.edit");
-    Route::get("/delete/{id}", [UserController::class, "delete"])->name("users.delete");
-});
+
 
 Route::get('/auth/redirect/{provider}', [SocialController::class, 'redirect']);
 Route::get('/callback/{provider}', [SocialController::class, 'callback']);

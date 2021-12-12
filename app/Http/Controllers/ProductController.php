@@ -79,4 +79,16 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getAll();
         return view("backend.product.order", compact("products", "categories", "detail"));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $products = Product::query()
+            ->where('name','like',"%{$search}%")
+            ->get();
+        return view('backend.product.search',compact('products'));
+    }
+
+
+
 }

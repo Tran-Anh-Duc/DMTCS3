@@ -1,7 +1,7 @@
 @extends("backend.layout.master")
 @section("content")
 
-<!doctype html>
+    <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,28 +13,43 @@
 
         .card-body {
             background: #060000;
+            border-radius: 15px;
+            cursor: pointer;
         }
 
-        .ordered{
-            background-color: green!important;
+        .card-body:hover {
+            background: green;
         }
+
+
+        .ordered {
+            background-color: green !important;
+        }
+
     </style>
 </head>
-<body>
-            <div class="row">
-                @foreach($tables as $key => $table)
-                <div class="col-4 mt-5 mb-5">
-                    <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black" class="card {{ (session()->has("table-".$table->id) && count(session()->get("table-".$table->id))>0)?"ordered":"" }}">
-                        <a href="{{route("products.order", $table->id)}}">
-                        <img style="width: 100%" src="{{asset("upload/table1.png")}}"  class="card-img-top" alt="">
-                        </a>
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: white; text-align: center">{{$table->name}}</h5>
-                        </div>
-                    </div>
+<body  >
+
+
+<div class="row">
+    @foreach($tables as $key => $table)
+        <div class="col-4 mt-5 mb-5">
+
+            <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black"
+                 class="card {{ (session()->has("table-".$table->id) && count(session()->get("table-".$table->id))>0)?"ordered":"" }}">
+                <a href="{{route("products.order", $table->id)}}">
+                    <img style="width: 100%" src="{{asset("upload/table1.png")}}" class="card-img-top" alt="">
+                </a>
+
+                <div class="card-body">
+                    <h5 class="card-title" style="color: white; text-align: center;height: 5px">{{$table->name}}</h5>
                 </div>
-                @endforeach
+
             </div>
+        </div>
+    @endforeach
+</div>
+
 </body>
 </html>
 @endsection

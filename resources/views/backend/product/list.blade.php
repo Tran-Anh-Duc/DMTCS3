@@ -7,6 +7,7 @@
             box-sizing: border-box;
             background-color: rgba(255, 255, 255, 0);
             border: none;
+
         }
         .card-inner {
             background-color: rgba(255, 255, 255, 255);
@@ -14,6 +15,7 @@
             max-width: 300px;
             text-align: center;
             font-family: arial;
+            border-radius: 10px;
         }
 
         .price {
@@ -32,11 +34,16 @@
             width: 100%;
             font-size: 18px;
         }
-
         .card button:hover {
             opacity: 0.7;
+
         }
     </style>
+        <form class="form-inline my-2 my-lg-0" action="{{ route('products.search') }}" method="GET">
+            <input style="width: 800px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <a class="btn btn-outline-success" href="{{route('products.list')}}" type="button">Back</a>
+        </form>
     <div class="container">
             <div class="row" >
                 @foreach($products as $product)
@@ -47,7 +54,6 @@
                             <h4 class="card-text">{{number_format($product["price"]). "₫"}}</h4>
                             <a style="width: 20px" type="button" class="btn btn-warning" href="{{route('products.detail', $product->id)}}">
                                 <i class="fas fa-info"></i>
-
                             </a>
                             <a type="button" class="btn btn-success" href="{{route('edit.form',$product->id)}}">
                                 Update
@@ -59,6 +65,8 @@
                         </div>
                     </div>
                 @endforeach
+
+
             </div>
         </div>
 

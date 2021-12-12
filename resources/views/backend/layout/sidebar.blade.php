@@ -9,7 +9,7 @@
             <div class="scroll__container" id="scroll__container">
                 <nav class="mdl-navigation">
 
-                    <a class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.index")}}">
+                    <a  class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.index")}}">
                         <i class="material-icons" role="presentation">dashboard</i>
                         Table
                     </a>
