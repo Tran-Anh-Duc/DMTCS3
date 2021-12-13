@@ -179,6 +179,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .card:hover {
+            opacity: .5;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -222,10 +228,10 @@
         {{--<collum 2 >--}}
         <div class="col-lg-4">
             <?php $sum = 0; ?>
-            <table class="table-light table table-bordered" style="margin-top: 30px">
+            <table class="table-light table table-bordered" style="margin-top: 140px">
                 <thead>
                 <tr>
-                    <th scope="col" colspan="4">Name</th>
+                    <th scope="col" >Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
                     <th scope="col" >Total</th>
@@ -236,12 +242,12 @@
                 @if(session()->has("table-".$detail->id))
                     @foreach(session()->get("table-".$detail->id) as $product)
                         <tr>
-                            <td colspan="4">{{$product["name"]}}</td>
+                            <td >{{$product["name"]}}</td>
                             <td>{{$product["price"]}}</td>
                             <td style="text-align: center">{{$product["quantity"]}}</td>
                             <td>{{number_format($product["quantity"] * $product["price"])}}₫</td>
                             <td>
-                                <a href="{{route("tables.deleteItemOrder", [$product["id"], $detail->id])}}">Delete</a>
+                                <a class="btn btn-danger" href="{{route("tables.deleteItemOrder", [$product["id"], $detail->id])}}">Delete</a>
                             </td>
                         </tr>
                         <?php
