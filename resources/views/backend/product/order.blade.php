@@ -189,7 +189,7 @@
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="row" style="margin-top: 30px">
-                <div class="col">
+                <div class="col"  >
                     <a style="width: 100%" href="{{route("products.order", $detail->id)}}"
                                     class="btn btn-outline-warning">Tất cả</a></div>
                 @foreach($categories as $key => $category)
@@ -199,10 +199,10 @@
             </div>
             {{-- card--}}
             <div class="container">
-                <div class="row">
+                <div class="row" id="col1">
                     @foreach($products as $key => $product)
                         @if(!isset($_GET["category"])  ||  $product->category_id == $_GET["category"])
-                            <div class="col-6 mt-5 ">
+                            <div class="col-6 mt-5 " >
                                 <div class="card">
                                     <div class="card-inner ">
                                         <a href="{{ route("tables.addToOrder",[$product->id,$detail->id]) }}">
@@ -222,21 +222,21 @@
         {{--<collum 2 >--}}
         <div class="col-lg-4">
             <?php $sum = 0; ?>
-            <table class="table-light table table-bordered" border="1px" style="margin-top: 30px">
+            <table class="table-light table table-bordered" style="margin-top: 30px">
                 <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col" colspan="4">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
+                    <th scope="col" >Total</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="col2">
                 @if(session()->has("table-".$detail->id))
                     @foreach(session()->get("table-".$detail->id) as $product)
                         <tr>
-                            <td scope="row">{{$product["name"]}}</td>
+                            <td colspan="4">{{$product["name"]}}</td>
                             <td>{{$product["price"]}}</td>
                             <td style="text-align: center">{{$product["quantity"]}}</td>
                             <td>{{number_format($product["quantity"] * $product["price"])}}₫</td>

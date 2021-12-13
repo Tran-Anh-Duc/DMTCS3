@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TableController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,5 @@ Route::prefix("/products")->group(function (){
     Route::get("/detail/{id}", [\App\Http\Controllers\ProductController::class, "detailApi"])->name("product.detail");
     Route::post("/create", [\App\Http\Controllers\ProductController::class, "createProductApi"])->name("product.create");
 });
+
 

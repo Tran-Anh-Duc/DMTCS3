@@ -104,9 +104,24 @@ class TableController extends Controller
         return redirect()->back();
     }
 
-    public function getByIdApi($id)
+    public function addToOrderApi($productId, $tableId)
     {
 
+        $tableName = "table-" . $tableId;
+        $order = session()->get($tableName) ?? [];
+        $product = $this->productRepository->getById($productId);
+        if (!isset($order[$productId])) {
+            $order[$productId] = array(
+                "id" => $product->id,
+                "name" => $product->name,
+                "price" => $product->price,
+                "quantity" => 1
+            );
+        } else {
+            $order[$productId]["quantity"]++;
+        }
+        session()->put($tableName, $order);
+        return response()->json($order);
     }
 
 
