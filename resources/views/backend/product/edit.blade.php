@@ -47,6 +47,7 @@
         </div>
 
         <div style="margin-left: 200px">
+            <button type="submit" class="btn btn-success">Update</button>
             <a href="{{route('products.list')}}" class="btn btn-primary">Back</a>
             <button class="btn btn-outline-success" type="submit">Update</button>
         </div>

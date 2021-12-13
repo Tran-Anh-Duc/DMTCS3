@@ -28,7 +28,7 @@
 
 
         .ordered {
-            background-color: green !important;
+            background-color: white !important;
         }
 
     </style>
@@ -43,6 +43,7 @@
             <div style="width: 80%; padding: 30px ;border-radius: 50px; background: black"
                  class="card {{ (session()->has("table-".$table->id) && count(session()->get("table-".$table->id))>0)?"ordered":"" }}">
                 <a href="{{route("products.order", $table->id)}}">
+{{--                <a onclick="displayOrder({{$table->id}})">--}}
                     <img style="width: 100%" src="{{asset("upload/table1.png")}}" class="card-img-top" alt="">
                 </a>
 

@@ -184,20 +184,26 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 ">
-            <a class="btn btn-danger" href="{{route("tables.index")}}">Back</a>
-            <div class="row">
-                <div class="col"><a style="width: 100%" href="{{route("products.order", $detail->id)}}" class="btn btn-outline-warning">Tất cả</a></div>
+{{--            <form class="form-inline my-2 my-lg-0" method="GET">--}}
+{{--                <input id="search-order" style="width: 650px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">--}}
+{{--                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>--}}
+{{--            </form>--}}
+            <div class="row" style="margin-top: 30px">
+                <div class="col"  >
+                    <a style="width: 100%" href="{{route("products.order", $detail->id)}}"
+                                    class="btn btn-outline-warning">Tất cả</a></div>
                 @foreach($categories as $key => $category)
-                    <div class="col"><a style="width: 100%" href="?category={{$category->id}}" class="btn btn-outline-warning">{{$category->name}}</a></div>
+                    <div class="col"><a style="width: 100%" href="?category={{$category->id}}"
+                                        class="btn btn-outline-warning">{{$category->name}}</a></div>
                 @endforeach
             </div>
             {{-- card--}}
             <div class="card" style="margin-top: 10px">
             <div class="container">
-                <div class="row">
+                <div class="row" id="col1">
                     @foreach($products as $key => $product)
                         @if(!isset($_GET["category"])  ||  $product->category_id == $_GET["category"])
-                            <div class="col-6 mt-5 ">
+                            <div class="col-6 mt-5 " >
                                 <div class="card">
                                     <div class="card-inner ">
                                         <a href="{{ route("tables.addToOrder",[$product->id,$detail->id]) }}">
@@ -224,39 +230,47 @@
             {{--                Order: {{ session()->has('table-'.$detail->id)?count(session()->get('table-'.$detail->id)):0 }}--}}
             {{--            </p>--}}
             <table class="table-light table table-bordered" border="1px" style="margin-top: 80px;width: 500px;height: 400px">
+
+
                 <thead>
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col" colspan="4">Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
+                    <th scope="col" >Total</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
-                <tbody>
-@if(session()->has("table-".$detail->id))
-    @foreach(session()->get("table-".$detail->id) as $product)
-        <tr>
-            <td scope="row">{{$product["name"]}}</td>
-            <td>{{$product["price"]}}</td>
-            <td>{{$product["quantity"]}}</td>
-            <td>{{number_format($product["quantity"] * $product["price"])}}₫</td>
-            <td><a href="{{route("tables.deleteItemOrder", [$product["id"], $detail->id])}}">Delete</a></td>
-        </tr>
-        <?php
-        $total = $product["quantity"] * $product["price"];
-        $sum += $total;
-        ?>
-    @endforeach
-    <tr>
-        <td style="text-align: center" colspan="3">Total</td>
-        <td style="text-align: center" colspan="2">{{number_format($sum)}}</td>
-    </tr>
-
-    <tr>
-        <td colspan="5"><a class="btn btn-success" style="width: 100%" href="{{route("tables.paymentOrder", $detail->id)}}">Pay</a></td>
-    </tr>
-@endif
+                <tbody id="col2">
+                @if(session()->has("table-".$detail->id))
+                    @foreach(session()->get("table-".$detail->id) as $product)
+                        <tr>
+                            <td colspan="4">{{$product["name"]}}</td>
+                            <td>{{$product["price"]}}</td>
+                            <td style="text-align: center">{{$product["quantity"]}}</td>
+                            <td>{{number_format($product["quantity"] * $product["price"])}}₫</td>
+                            <td>
+                                <a href="{{route("tables.deleteItemOrder", [$product["id"], $detail->id])}}">Delete</a>
+                            </td>
+                        </tr>
+                        <?php
+                        $total = $product["quantity"] * $product["price"];
+                        $sum += $total;
+                        ?>
+                    @endforeach
+                    <tr>
+                        <td style="text-align: center" colspan="3">Total</td>
+                        <td style="text-align: center" colspan="2">{{number_format($sum)}}₫</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"><a class="btn btn-success" style="width: 100%"
+                                           href="{{route("tables.paymentOrder", $detail->id)}}">Pay</a></td>
+                    </tr>
+                @else
+                    <tr>
+                        <td colspan="5" style="text-align: center">Chưa có order nào</td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
         </div>

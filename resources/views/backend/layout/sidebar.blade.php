@@ -10,23 +10,16 @@
             <div class="scroll__container" id="scroll__container">
                 <nav class="mdl-navigation">
 
-                    <a  class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.index")}}">
+                    <a class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.index")}}">
                         <i class="material-icons" role="presentation">dashboard</i>
                         Table
                     </a>
-                    <div class="sub-navigation">
-                        <a class="mdl-navigation__link">
-                            <i class="material-icons">view_comfy</i>
-                            Table List
-                            <i class="material-icons">keyboard_arrow_down</i>
+                    @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
+                        <a class="mdl-navigation__link mdl-navigation__link--current" href="{{route("tables.store")}}">
+                            <i class="material-icons" role="presentation">dashboard</i>
+                            Create New Table
                         </a>
-                        <div class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="{{route("tables.store")}}">
-                                Create Table
-                            </a>
-                        </div>
-                    </div>
-
+                    @endif
                     <div class="sub-navigation">
                         <a class="mdl-navigation__link">
                             <i class="material-icons">view_comfy</i>
@@ -38,11 +31,13 @@
                                 List Category
                             </a>
                         </div>
-                        <div class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="{{route("categories.store")}}">
-                                Create Category
-                            </a>
-                        </div>
+                        @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
+                            <div class="mdl-navigation">
+                                <a class="mdl-navigation__link" href="{{route("categories.store")}}">
+                                    Create Category
+                                </a>
+                            </div>
+                        @endif
                     </div>
 
                     <hr>
@@ -57,18 +52,20 @@
                                 List Product
                             </a>
                         </div>
-                        <div class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="{{route('products.create')}}">
-                                Create New Product
-                            </a>
-                        </div>
+                        @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
+                            <div class="mdl-navigation">
+                                <a class="mdl-navigation__link" href="{{route('products.create')}}" >
+                                    Create New Product
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <hr>
                     @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
-                    <a class="mdl-navigation__link" href="{{route("users.list")}}">
-                        <i class="material-icons" role="presentation">person</i>
-                        Account
-                    </a>
+                        <a class="mdl-navigation__link" href="{{route("users.list")}}">
+                            <i class="material-icons" role="presentation">person</i>
+                            Account
+                        </a>
                     @endif
                     <div class="mdl-layout-spacer"></div>
                     <hr>

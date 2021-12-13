@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
+use App\Models\User;
 use App\Repositories\ProductRepository;
 use App\Repositories\StatusRepository;
 use App\Repositories\TableRepository;
@@ -90,6 +91,7 @@ class TableController extends Controller
             unset($order[$productId]);
         }
         session()->put($tableName, $order);
+        toastr()->success("Delete success");
         return redirect()->back();
     }
 
@@ -98,7 +100,28 @@ class TableController extends Controller
 
         $tableName = "table-" . $tableId;
         session()->forget($tableName);
+        toastr()->success("Payment success");
         return redirect()->back();
+    }
+
+    public function addToOrderApi($productId, $tableId)
+    {
+
+        $tableName = "table-" . $tableId;
+        $order = session()->get($tableName) ?? [];
+        $product = $this->productRepository->getById($productId);
+        if (!isset($order[$productId])) {
+            $order[$productId] = array(
+                "id" => $product->id,
+                "name" => $product->name,
+                "price" => $product->price,
+                "quantity" => 1
+            );
+        } else {
+            $order[$productId]["quantity"]++;
+        }
+        session()->put($tableName, $order);
+        return response()->json($order);
     }
 
 

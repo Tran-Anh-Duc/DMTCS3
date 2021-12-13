@@ -81,6 +81,7 @@
                     <button type="submit" class="login100-form-btn">
                         Login
                     </button>
+{{--                    <a style="margin-left: 300px; font-weight: bolder" href="{{route("changePassword.form")}}">Change Password</a>--}}
                 </div>
                 <div class="lnrformat-text-">
 						<p class="">
@@ -129,7 +130,7 @@
 <!--===============================================================================================-->
 <script src="{{asset("login/vendor/countdowntime/countdowntime.js")}}"></script>
 <!--===============================================================================================-->
-<script src="{{asset("login/js/main.js")}}"></script>
+<script src="{{asset("login/js/product.js")}}"></script>
 @toastr_js
 @toastr_render
 </body>
