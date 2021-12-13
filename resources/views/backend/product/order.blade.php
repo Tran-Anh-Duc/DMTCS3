@@ -190,10 +190,10 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 ">
-            <form class="form-inline my-2 my-lg-0" method="GET">
-                <input id="search-order" style="width: 650px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
+{{--            <form class="form-inline my-2 my-lg-0" method="GET">--}}
+{{--                <input id="search-order" style="width: 650px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">--}}
+{{--                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>--}}
+{{--            </form>--}}
             <div class="row" style="margin-top: 30px">
                 <div class="col"  >
                     <a style="width: 100%" href="{{route("products.order", $detail->id)}}"
@@ -204,6 +204,7 @@
                 @endforeach
             </div>
             {{-- card--}}
+            <div class="card" style="margin-top: 10px">
             <div class="container">
                 <div class="row" id="col1">
                     @foreach($products as $key => $product)
@@ -225,10 +226,22 @@
                 </div>
             </div>
         </div>
+        </div>
         {{--<collum 2 >--}}
         <div class="col-lg-4">
             <?php $sum = 0; ?>
+
             <table class="table-light table table-bordered" style="margin-top: 140px">
+
+
+
+            {{--            <p style="color: white">--}}
+            {{--                Order: {{ session()->has('table-'.$detail->id)?count(session()->get('table-'.$detail->id)):0 }}--}}
+            {{--            </p>--}}
+            <table class="table-light table table-bordered" border="1px" style="margin-top: 80px;width: 500px;height: 400px">
+
+
+
                 <thead>
                 <tr>
                     <th scope="col" >Name</th>

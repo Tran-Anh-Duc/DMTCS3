@@ -1,8 +1,9 @@
 <div class="mdl-layout__drawer">
     @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
-        <header>Manager</header>
+        <header><a href="{{route('tables.index')}}"><i style="font-size: 40px;color: white" class="fas fa-home"></i>
+            </a>Home</header>
     @else
-        <header>Admin</header>
+        <header><a href="{{route('tables.index')}}"><i style="font-size: 50px;color: white" class="fas fa-home"></i></a>HOME</header>
     @endif
     <div class="scroll__wrapper" id="scroll__wrapper">
         <div class="scroller" id="scroller">
