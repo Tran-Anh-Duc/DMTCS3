@@ -238,7 +238,7 @@
             {{--            <p style="color: white">--}}
             {{--                Order: {{ session()->has('table-'.$detail->id)?count(session()->get('table-'.$detail->id)):0 }}--}}
             {{--            </p>--}}
-            <table class="table-light table table-bordered" border="1px" style="margin-top: 80px;width: 500px;height: 400px">
+            <table class="table-light table table-bordered" border="1px" style="margin-top: -75px;width: 500px;height: 400px">
 
 
 
