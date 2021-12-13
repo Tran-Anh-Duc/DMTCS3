@@ -10,6 +10,7 @@ use App\Repositories\StatusRepository;
 use App\Repositories\TableRepository;
 use Illuminate\Http\Request;
 use MongoDB\Driver\Session;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class TableController extends Controller
 {
@@ -78,6 +79,7 @@ class TableController extends Controller
             $order[$productId]["quantity"]++;
         }
         session()->put($tableName, $order);
+        toastr()->success("Add to order ");
         return redirect()->back();
     }
 
@@ -123,6 +125,30 @@ class TableController extends Controller
         session()->put($tableName, $order);
         return response()->json($order);
     }
+
+    function deleteItemOrderApi($productId, $tableId)
+    {
+        $tableName = "table-" . $tableId;
+        $order = session()->get($tableName) ?? [];
+        if ($order[$productId]["quantity"] > 1) {
+            $order[$productId]["quantity"]--;
+        } else  {
+            unset($order[$productId]);
+        }
+        session()->put($tableName, $order);
+        toastr()->success("Delete success");
+        return response()->json($order);
+    }
+
+    public function paymentOrderApi($tableId)
+    {
+
+        $tableName = "table-" . $tableId;
+        $delete = session()->forget($tableName);
+        toastr()->success("Payment success");
+        return response()->json($delete);
+    }
+
 
 
 

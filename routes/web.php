@@ -35,6 +35,7 @@ Route::prefix('tables')->group(function () {
     Route::get('addToOrder/{productId}/table/{tableId}', [TableController::class, 'addToOrder'])->name('tables.addToOrder');
     Route::get('/api/addToOrder/{productId}/table/{tableId}', [TableController::class, 'addToOrderApi'])->name('tables.addToOrderApi');
     Route::get('deleteFromOrder/{productId}/table/{tableId}', [TableController::class, 'deleteItemOrder'])->name('tables.deleteItemOrder');
+    Route::delete('/api/deleteFromOrder/{productId}/table/{tableId}', [TableController::class, 'deleteItemOrderApi'])->name('tables.deleteItemOrderApi');
     Route::get('paymentOrder/{tableId}', [TableController::class, 'paymentOrder'])->name('tables.paymentOrder');
 });
 
