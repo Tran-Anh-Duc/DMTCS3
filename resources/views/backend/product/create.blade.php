@@ -47,4 +47,55 @@
 
 
 </form>
+
+{{--<div class="modal fade" id="productCreate" aria-hidden="true">--}}
+{{--<form method="post" enctype="multipart/form-data">--}}
+{{--    @csrf--}}
+{{--    <div class="modal-dialog">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-body">--}}
+{{--                <h1 style="color: #00b0ff">Add</h1>--}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="name" class="col-sm-2">Name</label>--}}
+{{--                    <div class="col-sm-12">--}}
+{{--                        <input type="text" class="form-control" id="nameApi" name="name" placeholder="Enter name">--}}
+{{--                        @error('name')--}}
+{{--                        <p class="text text-danger">{{$message}}</p>--}}
+{{--                        @enderror--}}
+{{--                        <span id="taskError" class="alert-message"></span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="form-group">--}}
+{{--                    <label class="col-sm-2">Price</label>--}}
+{{--                    <div class="col-sm-12">--}}
+{{--                        <input type="text" class="form-control" id="priceApi" name="price" placeholder="Enter price">--}}
+{{--                        @error('price')--}}
+{{--                        <p class="text text-danger">{{$message}}</p>--}}
+{{--                        @enderror--}}
+{{--                        <span id="taskError" class="alert-message"></span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--                <div class="form-group">--}}
+{{--                    <label class="col-sm-2">Category</label>--}}
+{{--                    <div class="col-sm-12" id="categorytApi">--}}
+{{--                        <select style="margin-left: 15px;margin-bottom: 30px;width: 250px" class="custom-select" id="categorytApi" name="category_id">--}}
+{{--                            @foreach($categories as $category)--}}
+{{--                                <option name="category_id" value="{{$category->id}}">{{$category->name}}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                        <span id="taskError" class="alert-message"></span>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--            </div>--}}
+{{--            <div class="modal-footer">--}}
+{{--                <a href="{{route('products.list')}}" class="btn btn-primary">Back</a>--}}
+{{--                <button class="btn btn-primary" type="submit">Add Product</button>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</form>--}}
+{{--</div>--}}
 @endsection

@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::prefix("/products")->group(function (){
+    Route::get("/list", [\App\Http\Controllers\ProductController::class, "displayProduct"])->name("product.list");
+    Route::get("/order/{id}", [\App\Http\Controllers\ProductController::class, "showOrderApi"])->name("orders.list");
+    Route::get("/detail/{id}", [\App\Http\Controllers\ProductController::class, "detailApi"])->name("product.detail");
+    Route::post("/create", [\App\Http\Controllers\ProductController::class, "createProductApi"])->name("product.create");
+});
+
