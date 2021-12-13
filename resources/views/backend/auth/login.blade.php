@@ -81,6 +81,7 @@
                     <button type="submit" class="login100-form-btn">
                         Login
                     </button>
+{{--                    <a style="margin-left: 300px; font-weight: bolder" href="{{route("changePassword.form")}}">Change Password</a>--}}
                 </div>
                 <div class="lnrformat-text-">
 						<p class="">

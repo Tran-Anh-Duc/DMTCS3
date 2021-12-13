@@ -28,7 +28,7 @@
 
 
         .ordered {
-            background-color: green !important;
+            background-color: white !important;
         }
 
     </style>

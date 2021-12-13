@@ -20,7 +20,7 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         $product->name = $request->name;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
-        $product['category_id'] = $request->input('category');
+//        $product['category_id'] = $request->input('category');
         if ($request->hasFile('image')){
             $image = $request->file('image');
             $link = time() . '.' . $image->getClientOriginalExtension();

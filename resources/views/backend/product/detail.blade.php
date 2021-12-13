@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('content')
-    <div class="row" style="margin-left: 300px;margin-top: 50px;">
+    <div class="row" style="margin-left: 300px;margin-top: 50px;" id="card-detail">
         <div class="card" style="width:100%;">
             <div>
                 <img style="width: 300px; height: 150px" src="{{ asset('image/'.$product->image)}}" alt="">

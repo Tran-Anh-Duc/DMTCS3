@@ -71,6 +71,8 @@ Route::prefix("/auth")->group(function () {
     Route::get("/logout", [AuthController::class, "logout"])->name("auth.logout");
     Route::get("/register", [AuthController::class, "showFormRegister"])->name("register.form");
     Route::post("/register", [AuthController::class, "register"])->name("auth.register");
+    Route::post("/changePassword", [AuthController::class, "showFormChangePassword"])->name("changePassword.form");
+    Route::post("/changePassword", [AuthController::class, "changePassword"])->name("auth.changePassword");
 });
 
 

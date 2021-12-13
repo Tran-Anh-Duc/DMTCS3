@@ -61,5 +61,29 @@ class AuthController extends Controller
         return redirect()->route("login.form");
     }
 
+    public function showFormChangePassword()
+    {
+        return view("backend.auth.changePassword");
+    }
+
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+        $currentPassword = $user->password;
+        $request->validate([
+            'currentPassword' => 'required',
+            'newPassword' => 'required|min:5',
+            'confirmPassword' => 'required|same:newPassword',
+
+        ]);
+        if (!Hash::check($request->currentPassword, $currentPassword)) {
+            return redirect()->back()->withErrors(['currentPassword' => 'Incorrect password']);
+        }
+        $user->password = Hash::make($request->newPassword);
+        $user->save();
+        toastr()->success('Đổi mật khẩu thành công');
+        return redirect()->route('login.form');
+    }
+
 
 }

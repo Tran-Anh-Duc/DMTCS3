@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\InterfaceController\BaseInterface;
 use App\Models\Product;
+use App\Models\User;
 use App\Repositories\ProductRepository;
 use App\Repositories\StatusRepository;
 use App\Repositories\TableRepository;
@@ -90,6 +91,7 @@ class TableController extends Controller
             unset($order[$productId]);
         }
         session()->put($tableName, $order);
+        toastr()->success("Delete success");
         return redirect()->back();
     }
 
@@ -98,7 +100,13 @@ class TableController extends Controller
 
         $tableName = "table-" . $tableId;
         session()->forget($tableName);
+        toastr()->success("Payment success");
         return redirect()->back();
+    }
+
+    public function getByIdApi($id)
+    {
+
     }
 
 

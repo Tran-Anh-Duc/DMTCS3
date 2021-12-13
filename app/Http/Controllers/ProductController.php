@@ -95,6 +95,30 @@ class ProductController extends Controller
         return response()->json($products, 200);
     }
 
+    public function showOrderApi($id)
+    {
+        $detail = $this->tableRepository->getById($id);
+        $products = $this->productRepository->getAll();
+        $categories = $this->categoryRepository->getAll();
+        return response()->json([$detail, $products, $categories]);
+    }
+
+    public function detailApi($id)
+    {
+        $product = $this->productRepository->getById($id);
+        return response()->json($product);
+    }
+
+    public function createProductApi(Request $request)
+    {
+        $request->validate([
+            "name" => "required| max:20 | min:5",
+            "price" => "required"
+        ]);
+        $product =  $this->productRepository->create($request);
+        return response()->json($product);
+    }
+
 
 
 }
