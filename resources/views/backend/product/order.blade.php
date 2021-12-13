@@ -192,6 +192,7 @@
                 @endforeach
             </div>
             {{-- card--}}
+            <div class="card" style="margin-top: 10px">
             <div class="container">
                 <div class="row">
                     @foreach($products as $key => $product)
@@ -213,6 +214,7 @@
                 </div>
             </div>
         </div>
+        </div>
         {{--<collum 2 >--}}
         <div class="col-lg-4">
             <?php $sum = 0; ?>
@@ -221,7 +223,7 @@
             {{--            <p style="color: white">--}}
             {{--                Order: {{ session()->has('table-'.$detail->id)?count(session()->get('table-'.$detail->id)):0 }}--}}
             {{--            </p>--}}
-            <table class="table-light table table-bordered" border="1px" style="margin-top: 115px;width: 500px;height: 400px">
+            <table class="table-light table table-bordered" border="1px" style="margin-top: 80px;width: 500px;height: 400px">
                 <thead>
                 <tr>
                     <th scope="col">Name</th>

@@ -30,7 +30,7 @@
             <td>{{$category->description}}</td>
             <td><a class="btn btn-primary" type="button" href="{{route("categories.showFormEdit",$category->id)}}">Edit</a></td>
             <td><a class="btn btn-primary" type="button"  onclick="return confirm(' Are you sure ? ')" href="{{route('categories.destroy',$category->id)}}">Delete</a></td>
-            <td><a class="btn btn-primary" type="button"  href="{{route('categories.showDetail',$category->id)}}">Detail</a>
+{{--            <td><a class="btn btn-primary" type="button"  href="{{route('categories.showDetail',$category->id)}}">Detail</a>--}}
         </tr>
     @endforeach
     </tbody>

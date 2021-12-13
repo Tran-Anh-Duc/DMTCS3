@@ -2,7 +2,7 @@
     @if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
         <header>Manager</header>
     @else
-        <header>Admin</header>
+        <header><a href="{{route('tables.index')}}"><i style="font-size: 50px;color: white" class="fas fa-home"></i></a>HOME</header>
     @endif
     <div class="scroll__wrapper" id="scroll__wrapper">
         <div class="scroller" id="scroller">

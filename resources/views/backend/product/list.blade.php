@@ -38,13 +38,16 @@
             opacity: 0.7;
 
         }
+        .container{
+            background-image: url('public/upload/cf.png')!important;
+        }
     </style>
         <form class="form-inline my-2 my-lg-0" action="{{ route('products.search') }}" method="GET">
             <input style="width: 800px" class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             <a class="btn btn-outline-success" href="{{route('products.list')}}" type="button">Back</a>
         </form>
-    <div class="container">
+    <div class="container" style="">
             <div class="row" >
                 @foreach($products as $product)
                     <div class="card col-4 mt-5 mb-5" >
