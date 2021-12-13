@@ -14,7 +14,7 @@
 {{--        </div>--}}
         <div class="avatar-dropdown" id="icon">
             <span>{{\Illuminate\Support\Facades\Auth::user()->name ?? ""}}</span>
-            <img src="{{ \Illuminate\Support\Facades\Auth::user()->avatar ?asset("image/". \Illuminate\Support\Facades\Auth::user()->avatar)   : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
+            <img src="{{ \Illuminate\Support\Facades\Auth::user()->avatar ?  : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
                 style="border-radius: 50%; width: 30px; height:30px">
         </div>
         <!-- Account dropdawn-->
@@ -23,7 +23,7 @@
             <li class="mdl-list__item mdl-list__item--two-line">
                     <span class="mdl-list__item-primary-content row">
                         <span><img
-                                src="{{ \Illuminate\Support\Facades\Auth::user()->avatar ?asset("image/". \Illuminate\Support\Facades\Auth::user()->avatar)   : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
+                                src="{{ \Illuminate\Support\Facades\Auth::user()->avatar ?   : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqchnDJ6zreYOFN7Sag4iGQPEhjseY59SfQ-mf9bN2GpE8fcPXGGO3QC0YLVId0xw2zFU&usqp=CAU'}}"
                                 style="border-radius: 50%; width: 30px; height:30px"></span>
                         <span>{{\Illuminate\Support\Facades\Auth::user()->role->name ?? ""}}</span>
                         <span
